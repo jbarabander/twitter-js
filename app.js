@@ -1,6 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var swig = require('swig');
+var routes = require('./routes/');
 
 var app = express();
 
@@ -24,13 +25,6 @@ var templateObj = {
 // })
 
 app.use(morgan('combined'))
-app.use('/index', function(req, res, next){
-  res.render('index', templateObj, function(err, html) {
-    if(err) throw err;
-    res.send(html);
-  });
-});
-
 
 
 var server = app.listen(3000, function(){
