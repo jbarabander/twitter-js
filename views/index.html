@@ -3,7 +3,7 @@
 {% block content %}
 
   <div class="page-header">
-    <h1>Welcome to Twitter.js, Nimit!</h1>
+    <h1>{{title}}</h1>
   </div>
   <div class="row">
     <div class="col-md-3">
@@ -13,9 +13,10 @@
     </div>
     <div class="col-md-9">
 
+      {{notification}}
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
+        <li><a href='/user/{{tweet.name}}'><img src={{tweet.photo}}></a> {{tweet.name}} <br> <a href='/user/{{tweet.name}}/tweets/{{tweet.id}}'>{{tweet.text}}</li>
       {% endfor %}
 
     </div>

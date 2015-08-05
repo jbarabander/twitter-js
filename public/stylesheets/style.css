@@ -57,3 +57,7 @@ code {
 .content .by {
   font-weight: bold;
 }
+
+img {
+  height: 60px;
+}

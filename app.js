@@ -10,22 +10,23 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 swig.setDefaults({cache: false});
 
-var templateObj = {
-  title: "Hall of Fame",
-  people: [
-    {name: "Full"},
-    {name: "Stacker"},
-    {name: "Son"}
-  ]
-};
+// var templateObj = {
+//   title: "Hall of Fame",
+//   people: [
+//     {name: "Full"},
+//     {name: "Stacker"},
+//     {name: "Son"}
+//   ]
+// };
 
 // swig.renderFile(__dirname + "/views/index.html", templateObj, function(err, out) {
 //   if(err) throw err;
 //   console.log(out);
 // })
 
-app.use(morgan('combined'))
+app.use(morgan('dev'))
 
+app.use(routes);
 
 var server = app.listen(3000, function(){
   var host = server.address().address;
