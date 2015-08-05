@@ -79,4 +79,16 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
   </body>
+    <script src='/socket.io/socket.io.js'></script>
+    <script>
+      var socket = io.connect();
+      socket.on('new_tweet', function(tweet) {
+        // var node = document.getElementById('LI');
+        // var textNode = document.createTextNode('this is a test');
+        // node.appendChild(textNode);
+        // document.getElementById('tweet-container').appendChild(node);
+        console.log(tweet);
+        alert('Refreshing...check the console...')
+      })
+    </script>
 </html>
