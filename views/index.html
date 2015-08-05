@@ -11,12 +11,22 @@
       <b>Your Name</b><br>
       100 followers
     </div>
+    {% if showForm %}
+      <form action="/submit" method="POST">
+        <label for="name_field">Name:</label>
+        <input name="name" type="text" id="name_field" value='{{name}}'/>
+        <label for="text_field">Text:</label>
+        <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+        <input type="submit" value="Submit" />
+      </form>
+    {% endif %}
     <div class="col-md-9">
 
       {{notification}}
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li><a href='/user/{{tweet.name}}'><img src={{tweet.photo}}></a> {{tweet.name}} <br> <a href='/user/{{tweet.name}}/tweets/{{tweet.id}}'>{{tweet.text}}</li>
+        <li><a href='/user/{{tweet.name}}'>{{tweet.name}}</a> <br> <a href='/user/{{tweet.name}}/tweets/{{tweet.id}}'>{{tweet.text}}</a></li>
       {% endfor %}
 
     </div>
