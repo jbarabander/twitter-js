@@ -49,8 +49,10 @@ module.exports = function(io) {
     var text = req.body.text;
     // console.log(name,text);
     tweetBank.add(name, text);
-    io.sockets.emit('new_tweet', {name: name, text: text});
-    res.redirect('/');
+    // console.log(tweetBank.find({name: name, text: text}));
+    var id = tweetBank.find({name: name, text: text})[0].id;
+    io.sockets.emit('new_tweet', {name: name, text: text, id: id});
+    // res.redirect('/');
   })
   return router;
 };

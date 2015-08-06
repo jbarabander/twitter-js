@@ -83,12 +83,8 @@
     <script>
       var socket = io.connect();
       socket.on('new_tweet', function(tweet) {
-        // var node = document.getElementById('LI');
-        // var textNode = document.createTextNode('this is a test');
-        // node.appendChild(textNode);
-        // document.getElementById('tweet-container').appendChild(node);
-        console.log(tweet);
-        alert('Refreshing...check the console...')
+        $('#tweet-container').prepend("<li><a href='/user/" + tweet.name + "'>" + tweet.name + "</a> <br> <a href='/user/" + tweet.name + "/tweets/" + tweet.id + "'>" + tweet.text + "</a></li>")
+        // alert('Refreshing...check the console...')
       })
     </script>
 </html>
